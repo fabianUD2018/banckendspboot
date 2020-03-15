@@ -8,7 +8,7 @@ public interface IServicioClientes  {
 	public List <Cliente> findAll();
 
 	public Cliente findById(Integer id) ;
-	public void saveCliente (Cliente c) ;
+	public Cliente saveCliente (Cliente c) ;
 	public void deleteCliente(int c) ;
 	public void deleteCliente(Cliente c) ;
 }

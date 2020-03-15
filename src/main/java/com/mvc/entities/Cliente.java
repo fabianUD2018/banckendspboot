@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
+
 @Entity
 @Table (name ="cliente")
 public class Cliente {
@@ -18,17 +23,23 @@ public class Cliente {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	
-	@Column(nullable = true, length = 50)
+	@Column(nullable = false, length = 50)
+	@NotEmpty
+	@Size(min = 4, max = 9)
 	private String nombre;
 	
-	@Column()
+	@Column(nullable =false)
+	@NotEmpty
+
+	@Size(min = 4, max = 9)
 	private String apellido;
 	
-	@Column()
+	@Column(name ="created_at")
 	@Temporal (TemporalType.DATE)
 	private Date createdAt;
 	
-	@Column(name ="email")
+	@Column(name ="email", unique =false)
+	@Email
 	private String email;
 
 	public int getId() {

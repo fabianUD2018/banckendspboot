@@ -25,8 +25,10 @@ public class ClientesService implements IServicioClientes {
 		return clienteDAO.findById(id).orElse(null);
 	}
 	
-	public void saveCliente (Cliente c) {
-		clienteDAO.save(c);
+	public Cliente saveCliente (Cliente c) {
+		
+		return clienteDAO.save(c);
+		
 	}
 	
 	public void deleteCliente(Cliente c) {
