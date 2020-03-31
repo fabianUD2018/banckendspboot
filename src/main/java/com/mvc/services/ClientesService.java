@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +21,10 @@ public class ClientesService implements IServicioClientes {
 	@Transactional (readOnly = true)
 	public List <Cliente> findAll(){
 		return (List<Cliente>) clienteDAO.findAll();
+	}
+	
+	public Page <Cliente> findAll(Pageable p){
+		return  clienteDAO.findAll(p);
 	}
 	
 	public Cliente findById(Integer id) {
